@@ -1,0 +1,82 @@
+<html>
+<head>
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link href="./prism/prism.css" rel="stylesheet" >
+    <script src="./prism/prism.js"></script>
+    <script src=".js/functions.js"></script>
+    <title>Ecommerce API</title>
+    
+ 
+</head>
+<body>
+    <nav>
+        <h1>E-commerce API</h1>
+    </nav>
+    <aside>
+        
+<ul>
+        <li class="title">Products</li>
+        <li class="sub-title"><a href="#product_all">all products</a></li>
+        <li class="sub-title"><a href="#product_category">get products by category</a></li>
+        <li class="sub-title"><a href="#product_limit">limit results</a></li>
+        <li class="sub-title"><a href="#product_add">add a product</a></li>
+        <li class="sub-title"><a href="#product_single">get single product</a></li>
+        <li class="sub-title"><a href="#product_update">update product</a></li>
+        <li class="sub-title"><a href="#product_delete">delete product</a></li>
+    </ul>
+    <ul>
+        <li class="title">users</li>
+        <li class="sub-title"><a href="#user_login">login user</a></li>
+        <li class="sub-title"><a href="#user_login">register user</a></li>
+    </ul>
+    <ul>
+        <li class="title">Cart</li>
+        <li class="sub-title"><a href="#cart_all">get all</a> </li>
+        <li class="sub-title"><a href="#cart_add">add new cart/ add into cart</a></li>
+        <li class="sub-title"><a href="#cart_get">get cart of user</a></li>
+        <li class="sub-title"><a href="#cart_delete">delete from cart</a></li>
+    </ul>
+    <ul>
+        <li class="title">Order</li>
+        <li class="sub-title"><a href="#order_all">get all</a></li>
+        <li class="sub-title"><a href="#order_add">add new order</a></li>
+        <li class="sub-title"><a href="#order_get">get user order</a></li>
+        <li class="sub-title"><a href="#order_update">update user order</a></li>
+        <li class="sub-title"><a href="#order_state_update">update state of an order</a></li>
+    </ul>
+    </aside>
+<main>
+    
+        <section>
+            <h2 class="header">how it works!!</h2>
+            Having easy utility to store products and displaying them in hand, not to mention a convienient method to
+            update , to store and make modifications of variables of each module of E-commerce website.
+            the list below demonstrates all fonctionnalities and method of http used accompanied with exemple and its output.
+        </section>
+        <%- include('products'); -%>
+        <%- include('user'); -%>
+        <%- include('cart'); -%>
+        <%- include('order'); -%>
+    
+        
+    
+        
+        
+    
+</main>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach((link)=>{
+    
+    link.parentNode.addEventListener('click',(e)=>{
+        let id=link.getAttribute('href').slice(1)
+        document.getElementById(id).scrollIntoView({
+            behavior:"smooth",
+            alignToTop: false
+        })
+    })
+  
+})
+
+</script>
+</body>
+</html>

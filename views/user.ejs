@@ -1,0 +1,78 @@
+<section>
+    <h2 class="title">users</h2>
+        <h3 class="sub-title">login user</h3>
+        <div class="content">
+            <span>To authenticate a user using <b>post</b> method </span>
+            <blockquote>
+                <pre>
+                    <code class="language-javascript">
+                    fetch('http://localhost:5000/users/login', {
+                        method:'POST',
+                        headers:{'Content-type':'application/json'},
+                        body:JSON.stringify({
+                        email:'user@gmail.com',
+                        password:'ldsjlfj545sdf*'
+                    })
+                    })
+                    .then(response=> response.json())
+                </code>
+                </pre>
+            </blockquote>
+            <button onclick="toggle(this)">Show outputs</button>  
+
+            <blockquote>
+                <pre>
+                    <code  class="language-json">
+                        {
+                            "ok": true,
+                            "message": "user is logged in",
+                            "result": {
+                              "_id": "63ab352e305fb04e7d4a325a",
+                              "firstname": "coner",
+                              "lastname": "philip",
+                              "email": "user@gmail.com",
+                              "tel": "0612345678",
+                              "isUser": true
+                            }
+                          }
+                </code>
+                </pre>
+            </blockquote>
+        </div>
+        <h3 class="sub-title">register user</h3>
+        <div class="content">
+        <span>Registering a new user using <b>post</b> method ,it will return confirmation message</span>
+            <blockquote>
+                <pre>
+                    <code class="language-javascript">
+                    fetch('http://localhost:5000/users/register', {
+                        method:'POST',
+                        headers:{'Content-type':'application/json'},
+                        body:JSON.stringify({
+                        email:'user@gmail.com',
+                        password:'ldsjlfj545sdf*',
+                        lastname:'philip',
+                        firstname:'coner',
+                        isUser:true,
+                        tel:'0612345678'
+                    })
+                    })
+                    .then(response=> response.json())
+                </code>
+                </pre>
+            </blockquote>
+            <button onclick="toggle(this)">Show outputs</button>  
+
+            <blockquote>
+                <pre>
+                    <code  class="language-json">
+                        {
+                            "ok": true,
+                            "message": "the user is registered"
+                          }
+                   
+                </code>
+                </pre>
+            </blockquote>
+        </div>
+</section>

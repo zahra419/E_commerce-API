@@ -1,0 +1,261 @@
+<section>
+    <h2 class="title">Order</h2>
+        <h3 class="sub-title" id="order_all">get all</h3>
+        <div class="content">
+        <span class="text">Fetching all products using <b>get</b> method</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/orders')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": [
+                          {
+                            "_id": "639e49fab19b1715b7ed04e5",
+                            "userID": "639a54c95daabde0dd1d967d",
+                            "products": [
+                              {
+                                "productID": "6398fc475fd44a5ff64dac15",
+                                "quantity": 2,
+                                "_id": "639e49fab19b1715b7ed04e6"
+                              },
+                              {
+                                "productID": "639cbb6867ecf5f0f569da4d",
+                                "quantity": 1,
+                                "_id": "639e49fab19b1715b7ed04e7"
+                              }
+                            ],
+                            "address": "fjfjfjfghftry",
+                            "total": 1234,
+                            "state": "received",
+                            "createdAt": "2022-12-17T23:00:10.441Z",
+                            "updatedAt": "2022-12-17T23:00:10.456Z",
+                            "__v": 0
+                          }
+                        ],
+                        "message": "All orders are retrieved successfully"
+                      }         
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+        <h3 class="sub-title" id="order_add">add new order</h3>
+        <div class="content">
+        <span class="text">Adding new order of user using <b>post</b> method and passing user id in parameter</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/orders/newOrder/639b196926effabdcd7870fb',{
+                    method:'POST',
+                    headers:{'Content-type':'application/json'},
+                    body:JSON.stringify({
+                        products:[{
+                            productID:639cbb6867ecf5f0f569da4d,
+                            quantity:4
+                        }],
+                        address:'Casablanca,Maroc',
+                        total:1200
+                    })
+                })
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": {
+                          "userID": "639b196926effabdcd7870fb",
+                          "products": [
+                            {
+                              "productID": "639cbb6867ecf5f0f569da4d",
+                              "quantity": 4,
+                              "_id": "63aa2bec512f3a7ba58615c4"
+                            }
+                          ],
+                          "address": "Casablanca,Maroc",
+                          "total": 1200,
+                          "state": "pending",
+                          "createdAt": "2022-12-26T23:19:08.066Z",
+                          "_id": "63aa2bec512f3a7ba58615c3",
+                          "updatedAt": "2022-12-26T23:19:08.073Z",
+                          "__v": 0
+                        },
+                        "message": "the order is created successfully"
+                      }
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+        <h3 class="sub-title" id="order_get">get user order</h3>
+        <div class="content">
+        <span class="text">Fetching orders of specific user by passing user id in parameter</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/orders/639a54c95daabde0dd1d967d')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": [
+                          {
+                            "_id": "639e49fab19b1715b7ed04e5",
+                            "userID": "639a54c95daabde0dd1d967d",
+                            "products": [
+                              {
+                                "productID": "6398fc475fd44a5ff64dac15",
+                                "quantity": 2,
+                                "_id": "639e49fab19b1715b7ed04e6"
+                              },
+                              {
+                                "productID": "639cbb6867ecf5f0f569da4d",
+                                "quantity": 1,
+                                "_id": "639e49fab19b1715b7ed04e7"
+                              }
+                            ],
+                            "address": "fjfjfjfghftry",
+                            "total": 1234,
+                            "state": "received",
+                            "createdAt": "2022-12-17T23:00:10.441Z",
+                            "updatedAt": "2022-12-17T23:00:10.456Z",
+                            "__v": 0
+                          }
+                        ],
+                        "message": "All orders are retrieved successfully"
+                      }         
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+        <h3 class="sub-title" id="order_update">update user order</h3>
+        <div class="content">
+        <span class="text">Changing or updating order of user requires <b>put</b> method and  passing order id  as parameter</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/orders/639e49fab19b1715b7ed04e5',{
+                    method:'PUT',
+                    headers:{'Content-type':'application/json'},
+                    body:JSON.stringify({
+                        products:[{
+                            productID:63a9ed9925a3f50caaffb419,
+                            quantity:1
+                        }],
+                        address:'Casablanca,Maroc',
+                        total:5000
+                    })
+                })
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                  {
+                    "ok": true,
+                    "msg": "order is updated",
+                    "result": {
+                      "_id": "639e49fab19b1715b7ed04e5",
+                      "userID": "639a54c95daabde0dd1d967d",
+                      "products": [
+                        {
+                          "productID": "6398fc475fd44a5ff64dac15",
+                          "quantity": 2,
+                          "_id": "639e49fab19b1715b7ed04e6"
+                        },
+                        {
+                          "productID": "639cbb6867ecf5f0f569da4d",
+                          "quantity": 1,
+                          "_id": "639e49fab19b1715b7ed04e7"
+                        }
+                      ],
+                      "address": "fjfjfjfghftry",
+                      "total": 1234,
+                      "state": "cancelled",
+                      "createdAt": "2022-12-17T23:00:10.441Z",
+                      "updatedAt": "2022-12-17T23:00:10.456Z",
+                      "__v": 0
+                    }
+                  }
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+        <h3 class="sub-title" id="order_state_update">update state of an order</h3>
+        <div class="content"></div>
+        <span class="text">Changing state of order using <b>patch</b> method and by passing order id of user as parameter</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/orders/id',{
+                    method:'PATCH',
+                    headers:{'Content-type':'application/json'},
+                    body:JSON.stringify({
+                        state:'cancelled'
+                    })
+                })
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code class="language-json">
+                    {
+                        "ok": true,
+                        "result": {
+                          "_id": "639e49fab19b1715b7ed04e5",
+                          "userID": "639a54c95daabde0dd1d967d",
+                          "products": [
+                            {
+                              "productID": "6398fc475fd44a5ff64dac15",
+                              "quantity": 2,
+                              "_id": "639e49fab19b1715b7ed04e6"
+                            },
+                            {
+                              "productID": "639cbb6867ecf5f0f569da4d",
+                              "quantity": 1,
+                              "_id": "639e49fab19b1715b7ed04e7"
+                            }
+                          ],
+                          "address": "fjfjfjfghftry",
+                          "total": 1234,
+                          "state": "cancelled",
+                          "createdAt": "2022-12-17T23:00:10.441Z",
+                          "updatedAt": "2022-12-17T23:00:10.456Z",
+                          "__v": 0
+                        },
+                        "message": "state of order is updated"
+                      }
+               
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+</section>

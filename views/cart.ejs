@@ -1,0 +1,148 @@
+<section>
+    
+    <h2 class="title">Cart</h2>
+    <h3 class="sub-title" id="cart_all">get all </h3>
+    <div class="content">
+        <span class="text">Fetching all carts using <b>get</b> method</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/cart')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": [
+                          {
+                            "_id": "639b73d7c58ee4af8d6db972",
+                            "userID": "639a3e39f3a3f2925fc382cf",
+                            "products": [
+                              {
+                                "productID": "6398fc475fd44a5ff64dac15",
+                                "quantity": 1,
+                                "_id": "639b73d7c58ee4af8d6db973"
+                              }
+                            ],
+                            "__v": 2
+                          }
+                        ],
+                        "message":"All carts are retrieved successfully"
+                      }
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+    <h3 class="sub-title" id="cart_add">add new cart/ add into cart</h3>
+    <div class="content">
+        <span class="text">Adding new product to cart or to create a cart of user ,<b>post</b> method is used also user id and product id needed as parameter
+        the quantity of product is optionnal which is passed as query</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/cart/639a3e39f3a3f2925fc382cf/63a9ed9925a3f50caaffb419?quantity=2',{
+                    method:'GET'
+                })
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "message": "product has been added"
+                      }
+            </code>
+            </pre>
+        </blockquote>
+       </div>
+    <h3 class="sub-title" id="cart_get">get cart of user</h3> 
+
+    <div class="content">
+    <span class="text">Fetching cart of specific user by passing user id in parameter</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/cart/639a3e39f3a3f2925fc382cf')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": [
+                          {
+                            "_id": "639b73d7c58ee4af8d6db9 
+                            72",
+                            "userID": "639a3e39f3a3f2925fc382cf",
+                            "products": [
+                              {
+                                "productID": "6398fc475fd44a5ff64dac15",
+                                "quantity": 1,
+                                "_id": "639b73d7c58ee4af8d6db973"
+                              }
+                            ],
+                            "__v": 2
+                          }
+                        ],
+                        "message":"The cart are retrieved successfully"
+                      }
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+    <h3 class="sub-title" id="cart_delete">delete from cart</h3>
+    <div class="content">
+        <span class="text">Deleting specific product of user cart using <b>patch</b> method and passing 
+        user id and product id to be deleted</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/cart/639a3e39f3a3f2925fc382cf/6398fc475fd44a5ff64dac15',{
+                    method:'DELETE'
+                }).then(response=> response.json())
+              
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code class="language-json">
+                    {
+                        "ok": true,
+                        "message": "the item is deleted",
+                        "result": {
+                          "_id": "639b73d7c58ee4af8d6db972",
+                          "userID": "639a3e39f3a3f2925fc382cf",
+                          "products": [
+                            {
+                              "productID": "63a9ed9925a3f50caaffb419",
+                              "quantity": 2,
+                              "_id": "63aa18f385f2974b19f33e99"
+                            }
+                          ],
+                          "__v": 4
+                        }
+                      }
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+</section>

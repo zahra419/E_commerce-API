@@ -1,0 +1,241 @@
+
+<section>
+    <h2 class="title">Products</h2>
+    <h3 class="sub-title" id="product_all">get all products</h3>
+    <div class="content">
+     <span class="text">Fetching all products using <b>get</b> method</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/products')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": [
+                          {
+                            "_id": "6398fc475fd44a5ff64dac15",
+                            "title": "new gucci bag",
+                            "category": "bags",
+                            "desc": "new with long and short strap two pocket in front in two diffrent color",
+                            "quantity": 5,
+                            "price": 2000,
+                            "listImg": [],
+                            "__v": 0
+                          },
+                          {
+                            "_id": "639cbb6867ecf5f0f569da4d",
+                            "title": "sample of hand cream",
+                            "category": "cosmetics",
+                            "desc": "lmjkdsmfljdmsjfldjmsjfdsjfmlqdkjfkdjs",
+                            "quantity": 2,
+                            "price": 300,
+                            "listImg": [],
+                            "__v": 0
+                          }
+                        ],
+                        "message": "products are loaded successfully"
+                      }
+            </code>
+            </pre>
+        </blockquote></div>
+    <h3 class="sub-title" id="product_category">get products by category</h3>
+        <div class="content">
+            <span class="text">Fetching all products by the category using <b>get</b> method</span>
+               <blockquote>
+                   <pre>
+                       <code class="language-javascript">
+                       fetch('http://localhost:5000/products?category=shoes')
+                       .then(response=> response.json())
+                   </code>
+                   </pre>
+               </blockquote></div>
+    
+    </div>
+    <h3 class="sub-title" id="product_limit">limit results</h3>
+    <div class="content">
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/products?limit=1')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": [
+                          {
+                            "_id": "6398fc475fd44a5ff64dac15",
+                            "title": "new gucci bag",
+                            "category": "bags",
+                            "desc": "new with long and short strap two pocket in front in two diffrent color",
+                            "quantity": 5,
+                            "price": 2000,
+                            "listImg": [],
+                            "__v": 0
+                          }
+                        ],
+                        "message": "products are loaded successfully"
+                      }
+            </code>
+            </pre>
+        </blockquote>
+    
+    </div>
+   
+    <h3 class="sub-title" id="product_add">add a product</h3>
+    <div class="content">
+        <span class="text">To add a product it s required to use<b>post</b>method and includes details of product</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/newProduct',{
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:JSON.stringify({
+                        title:'new smartphone ',
+                        category:'smartphone',
+                        desc:'new product added to category of smartphone',
+                        quantity:2,
+                        price: 5000,
+                        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmRkLSB2SpedTC0SBW8_48oW6gmfNWiWtzw&usqp=CAU'
+                    })
+                })
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>
+        
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": {
+                            "_id": "63a9ed9925a3f50caaffb419",
+                            "category": "smartphone",
+                            "desc": "new product added to category of smartphone",
+                            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmRkLSB2SpedTC0SBW8_48oW6gmfNWiWtzw&usqp=CAU",
+                            "listImg": Array [],
+                            "price": 5000,
+                            "quantity": 2,
+                            "title": "new smartphone "
+                          },
+                        "message": "product is created successfully"
+                      }
+            </code>
+            </pre>
+        </blockquote>
+       </div>
+    <h3 class="sub-title" id="product_single">get single product</h3>
+    <div class="content">
+        <span class="text">Retreiving detail of single products by passing id of product as parameter</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/products/639cbb6867ecf5f0f569da4d')
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "result": {
+                          "_id": "639cbb6867ecf5f0f569da4d",
+                          "title": "sample of hand cream",
+                          "category": "cosmetics",
+                          "desc": "lmjkdsmfljdmsjfldjmsjfdsjfmlqdkjfkdjs",
+                          "quantity": 2,
+                          "price": 300,
+                          "listImg": [],
+                          "__v": 0
+                        },
+                        "message":"Product details are retrieved successfully"
+                      }
+               
+            </code>
+            </pre>
+        </blockquote>
+    
+       </div>
+    <h3 class="sub-title" id="product_update">update product</h3>
+    <div class="content">
+        <span class="text">Updating specific product requires passing id of product in parameter using <b>put</b>method</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/products/63a9ed9925a3f50caaffb419',{
+                    method:'PATCH',
+                    headers:{'Content-type':'application/json'},
+                    body:JSON.stringify({
+                        title:'new modified smartphone ',
+                        price: 6000 
+                    })
+                })
+                .then(response=> response.json())
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code  class="language-json">
+                    {
+                        "ok": true,
+                        "message": "product is updated"
+                    }
+               
+            </code>
+            </pre>
+        </blockquote>
+       </div>
+    <h3 class="sub-title" id="product_delete">delete product</h3>
+    <div class="content">
+        <span class="text">Deleting specific product requires passing id of product in parameter using <b>delete</b> method</span>
+        <blockquote>
+            <pre>
+                <code class="language-javascript">
+                fetch('http://localhost:5000/products/6398fc475fd44a5ff64dac15',{
+                    method:'DELETE'
+                }).then(response=> response.json())
+                .then(data=>)
+            </code>
+            </pre>
+        </blockquote>
+        <button onclick="toggle(this)">Show outputs</button>  
+
+        <blockquote>
+            <pre>
+                <code   class="language-json">
+                    {
+                        "ok": true,
+                        "message": "The product is deleted"
+                    }
+                             
+            </code>
+            </pre>
+        </blockquote>
+    </div>
+        
+       
+</section>

@@ -1,0 +1,145 @@
+ @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat&display=swap'); 
+:root{
+
+    --aside: 15rem;
+    --primary:#0C1A1A;
+    --secondary:#6ACFC7 ;
+    --mainfont:'Abril Fatface', cursive;
+    --marginLeft: 20px;
+    --start:3.5rem;
+     font-family: 'Caveat', cursive;
+     color: var(--primary)
+    
+}
+main{
+    padding: .5rem;
+    margin-inline: 2rem;
+    margin-top: 3rem;
+}
+nav{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    line-height: 1.7rem;
+    box-shadow: inset 0 0 3px silver;
+}
+h1{
+    font-weight: bolder;
+    font-family: var(--mainfont);
+    color: var(--primary);
+    text-transform: uppercase;
+	background-image: linear-gradient(  var(--secondary) , var(--primary));
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+    
+    margin-left: 5rem;
+}
+body{
+    margin:0 ;
+    padding: 0 ;
+}
+aside{
+
+    background-color: var(--primary);
+    width:15rem;
+    position: fixed;
+    left:0;
+    bottom: 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--secondary) var(--primary);
+    scrollbar-width: thin;
+    top:var(--start);
+    padding: 1rem .5rem;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+li{
+    list-style-type: none;
+    align-self: flex-start;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.title{
+    font-size: 1.5rem;
+    font-family: var(--mainfont);
+    
+}
+aside .title{
+    font-family: var(--mainfont);
+    color: white;
+    font-size: 1.5em;
+}
+.sub-title{
+    color: var(--primary);
+    scroll-margin-top: calc(var(--start) + 15px);
+    text-transform: capitalize;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5em;
+    display: inline-block;
+}
+
+aside .sub-title{
+    margin-left: var(--marginLeft);
+    text-transform: capitalize;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.17em;
+    
+}
+ .sub-title::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left:0;
+  width:0%;
+  height: 100%;
+  border-bottom: 2px solid var(--secondary);
+}
+ .sub-title:hover:after{
+    width: 100%;
+    transition: all .3s ease-in-out;
+    
+}
+.header{
+    color: var(--secondary);
+    text-shadow: 0 1px 1px #0C1A1A;
+}
+main{
+    margin-top: var(--start);
+    margin-left: 16rem;
+}
+button{
+    margin:0 2.5rem;
+    color:var(--primary);
+    background-color: white;
+    padding:10px 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+    border-image: linear-gradient(var(--primary),var(--secondary)) ;
+    border-image-slice: 30%;
+}
+button:hover{
+    background-color: var(--primary);
+    color:white;
+}
+.text{
+    margin:0 1.5rem;
+}
+b{
+    color: var(--secondary);
+}
+button + blockquote{
+    display: none;
+}
+.show{
+    display: block;
+}
