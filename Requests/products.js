@@ -5,7 +5,7 @@ const Product=require('../Schema/Product');
 
 
 
-// displaying all products or by category
+// displaying all products 
 router.get('/',async (req,res,next)=>{
     const category=req.query.category;
     const limit=Number(req.query.limit) || 0;
@@ -19,6 +19,21 @@ router.get('/',async (req,res,next)=>{
         res.status(201).json({ok:true,result,message:'products are loaded successfully'});;
     }else{
         res.status(204).json({ok: true,message: "there s no product"})
+    }
+}catch(err){
+    next(err) 
+}
+})
+// displaying  products  by category
+router.get('/categories',async (req,res,next)=>{
+    const category=req.query.category;
+    
+    try{
+        if(category){
+          const  result=await Product.find({category})
+        res.status(201).json({ok:true,result,message:'products are loaded successfully'});;
+    }else{
+        res.status(204).json({ok: true,message: "category name is requireed"})
     }
 }catch(err){
     next(err) 

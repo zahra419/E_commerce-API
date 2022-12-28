@@ -52,11 +52,37 @@
                <blockquote>
                    <pre>
                        <code class="language-javascript">
-                       fetch('http://localhost:5000/products?category=shoes')
+                       fetch('http://localhost:5000/products/categories/?category=smartphone')
                        .then(response=> response.json())
                    </code>
                    </pre>
-               </blockquote></div>
+               </blockquote>
+               <button onclick="toggle(this)">Show outputs</button>
+        
+               <blockquote>
+                   <pre>
+                       <code  class="language-json">
+                        {
+                            "ok": true,
+                            "result": [
+                              {
+                                "_id": "63a9ed9925a3f50caaffb419",
+                                "title": "new smartphone ",
+                                "category": "smartphone",
+                                "desc": "new product added to category of smartphone",
+                                "quantity": 2,
+                                "price": 5000,
+                                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmRkLSB2SpedTC0SBW8_48oW6gmfNWiWtzw&usqp=CAU",
+                                "listImg": [],
+                                "__v": 0
+                              }
+                            ],
+                            "message": "products are loaded successfully"
+                          }
+                   </code>
+                   </pre>
+               </blockquote>
+            </div>
     
     </div>
     <h3 class="sub-title" id="product_limit">limit results</h3>
@@ -102,7 +128,7 @@
         <blockquote>
             <pre>
                 <code class="language-javascript">
-                fetch('http://localhost:5000/newProduct',{
+                fetch('http://localhost:5000/products/newProduct',{
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body:JSON.stringify({

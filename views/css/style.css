@@ -6,24 +6,42 @@
     --secondary:#6ACFC7 ;
     --mainfont:'Abril Fatface', cursive;
     --marginLeft: 20px;
-    --start:3.5rem;
+    --start:4rem;
      font-family: 'Caveat', cursive;
      color: var(--primary)
     
 }
-main{
-    padding: .5rem;
-    margin-inline: 2rem;
-    margin-top: 3rem;
+body{
+    margin:0 ;
+    padding: 0 ;
+    
 }
 nav{
     position: fixed;
     z-index: 100;
     top: 0;
-    width: 100%;
+    right:0;
+    left: 0;
     background-color: white;
     line-height: 1.7rem;
     box-shadow: inset 0 0 3px silver;
+    padding-inline: 20px;
+    display: flex;
+    flex :1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+.icon{
+    cursor: pointer;
+    font-size: 32px;
+    color: var(--primary) ;
+    display: none;
+}
+.icon:hover{
+   color: var(--secondary);
 }
 h1{
     font-weight: bolder;
@@ -33,13 +51,8 @@ h1{
 	background-image: linear-gradient(  var(--secondary) , var(--primary));
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
-    
-    margin-left: 5rem;
 }
-body{
-    margin:0 ;
-    padding: 0 ;
-}
+
 aside{
 
     background-color: var(--primary);
@@ -53,7 +66,14 @@ aside{
     scrollbar-width: thin;
     top:var(--start);
     padding: 1rem .5rem;
+    
 }
+main{
+    padding: .5rem;
+    margin-top: var(--start);
+    margin-left: 16rem;
+}
+
 ul{
     display: flex;
     flex-direction: column;
@@ -73,13 +93,12 @@ a{
     
 }
 aside .title{
-    font-family: var(--mainfont);
     color: white;
-    font-size: 1.5em;
+    
 }
 .sub-title{
     color: var(--primary);
-    scroll-margin-top: calc(var(--start) + 15px);
+    scroll-margin-top: var(--start);
     text-transform: capitalize;
     position: relative;
     cursor: pointer;
@@ -89,11 +108,8 @@ aside .title{
 
 aside .sub-title{
     margin-left: var(--marginLeft);
-    text-transform: capitalize;
     position: relative;
-    cursor: pointer;
-    font-size: 1.17em;
-    
+    font-size: 1.17rem;
 }
  .sub-title::after{
   content: "";
@@ -109,14 +125,11 @@ aside .sub-title{
     transition: all .3s ease-in-out;
     
 }
-.header{
+.header-text{
     color: var(--secondary);
     text-shadow: 0 1px 1px #0C1A1A;
 }
-main{
-    margin-top: var(--start);
-    margin-left: 16rem;
-}
+
 button{
     margin:0 2.5rem;
     color:var(--primary);
@@ -143,3 +156,21 @@ button + blockquote{
 .show{
     display: block;
 }
+.show_menu{
+    width: 100%;
+    overflow-y: auto;
+}
+@media only screen and (max-width: 1000px) {
+   aside{
+    z-index: 100;
+    width: 0%;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+   }
+   main{
+    margin-inline: 2rem;
+   }
+   .icon{
+    display: block;
+   }
+  }

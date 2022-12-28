@@ -3,7 +3,9 @@
     <link href="./css/style.css" rel="stylesheet" type="text/css">
     <link href="./prism/prism.css" rel="stylesheet" >
     <script src="./prism/prism.js"></script>
-    <script src=".js/functions.js"></script>
+    <script src="./js/functions.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>Ecommerce API</title>
     
  
@@ -11,6 +13,10 @@
 <body>
     <nav>
         <h1>E-commerce API</h1>
+        <span class="icon" onclick="change()">
+            <i  class="fa fa-bars"></i>
+
+        </span>
     </nav>
     <aside>
         
@@ -27,7 +33,7 @@
     <ul>
         <li class="title">users</li>
         <li class="sub-title"><a href="#user_login">login user</a></li>
-        <li class="sub-title"><a href="#user_login">register user</a></li>
+        <li class="sub-title"><a href="#user_register">register user</a></li>
     </ul>
     <ul>
         <li class="title">Cart</li>
@@ -48,7 +54,7 @@
 <main>
     
         <section>
-            <h2 class="header">how it works!!</h2>
+            <h2 class="header-text">how it works!!</h2>
             Having easy utility to store products and displaying them in hand, not to mention a convienient method to
             update , to store and make modifications of variables of each module of E-commerce website.
             the list below demonstrates all fonctionnalities and method of http used accompanied with exemple and its output.
@@ -64,19 +70,5 @@
         
     
 </main>
-<script>
-document.querySelectorAll('a[href^="#"]').forEach((link)=>{
-    
-    link.parentNode.addEventListener('click',(e)=>{
-        let id=link.getAttribute('href').slice(1)
-        document.getElementById(id).scrollIntoView({
-            behavior:"smooth",
-            alignToTop: false
-        })
-    })
-  
-})
-
-</script>
 </body>
 </html>
